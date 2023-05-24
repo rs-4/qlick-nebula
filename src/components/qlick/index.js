@@ -40,9 +40,7 @@ const QlikObject = ({ type, id }) => {
           elementRef.current.removeChild(elementRef.current.firstChild);
         }
       }
-      if (session) {
-        session.close();
-      }
+    
     };
   }, [type, id]);
 

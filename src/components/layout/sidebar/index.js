@@ -11,11 +11,10 @@ import {
   faHouse,
   faRightFromBracket,
   faPlus,
-  faDatabase,
+  faDatabase, 
   faCodePullRequest,
 } from "@fortawesome/free-solid-svg-icons";
-import logoApp from "../../logo2.svg";
-
+import '../../../App.css'
 
 library.add(faHome, faChartBar, faCog, faTimes, faHouse);
 
@@ -32,9 +31,10 @@ const Sidebar = styled.div`
   left: 0;
   bottom: 0;
   width: ${(props) => (props.isCollapsed ? "80px" : "250px")};
-  background-color: #3d217e;
-  transition: all 0.2s ease-in-out;
+  background-color: #005af0;
   z-index: 1000;
+  border-right : 1px solid black;
+ 
   font-family: "Poppins", sans-serif;
 `;
 
@@ -44,9 +44,9 @@ const Logo = styled.div`
   height: 72px;
   font-size: 24px;
   font-weight: 600;
-  color: #fff;
+  color: black;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
 `;
 
 const NavItem = styled.div`
@@ -59,15 +59,15 @@ const NavItem = styled.div`
   font-weight: 500;
   color: #fff;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.1);
     border-radius: 5px;
   }
 
   &.active {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.1);
     border-radius: 5px;
   }
 `;
@@ -82,6 +82,13 @@ const Icon = styled.i`
 const Text = styled.span`
   flex: 1;
 `;
+
+const TitleSidebard = styled.h2`
+  flex: 1;
+  text-align: center;
+  color: #fff;
+`;
+
 
 const LogoutButton = styled.button`
   display: flex;
@@ -99,7 +106,7 @@ const LogoutButton = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
-  transition: all 0.1s ease-in-out;
+  transition: all 0.3s ease-in-out;
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.1);
@@ -112,7 +119,7 @@ const StyledNavLink = styled(NavLink)`
 
   &.active {
     div {
-      background-color: rgba(255, 255, 255, 0.2);
+      background-color: rgba(0, 0, 0, 0.2);
       border-radius: 5px;
     }
   }
@@ -138,10 +145,8 @@ const SidebarComponent = ({ isCollapsed, setIsCollapsed }) => {
       text: "Statistics",
       path: "statistics",
     },
-    { id: 2, icon: faCog, text: "Settings", path: "settings" },
-    { id: 3, icon: faCodePullRequest, text: "Request", path: "test" },
-    { id: 4, icon: faPlus, text: "Generate", path: "generate" },
-    { id: 5, icon: faDatabase, text: "DB connector", path: "database" },
+    { id: 2, icon: faCog, text: "statistics", path: "statistics" },
+    { id: 3, icon: faCodePullRequest, text: "Map", path: "map" },
   ];
 
   const handleToggleSidebar = () => {
@@ -152,18 +157,17 @@ const SidebarComponent = ({ isCollapsed, setIsCollapsed }) => {
     <Sidebar isCollapsed={isCollapsed}>
       <Logo isCollapsed={isCollapsed} onClick={handleToggleSidebar}>
         {isCollapsed ? (
-          <LogoApp src={logoApp} alt="Logo" />
+         <TitleSidebard>&gt;</TitleSidebard>
         ) : (
           <>
-            <LogoApp src={logoApp} alt="Logo" />
-            <span style={{ margin: 20 }}>straker</span>
+            <TitleSidebard>Hra </TitleSidebard>
           </>
         )}
       </Logo>
       {!isCollapsed && (
         <>
           <Separator />
-          <LabelItem>Category 1</LabelItem>
+          <LabelItem>Menu</LabelItem>
           <Separator />
         </>
       )}
@@ -183,17 +187,6 @@ const SidebarComponent = ({ isCollapsed, setIsCollapsed }) => {
           </StyledNavLink>
         </React.Fragment>
       ))}
-      {!isCollapsed && (
-        <>
-          <Separator />
-          <LabelItem>Category 2</LabelItem>
-          <Separator />
-        </>
-      )}
-      <LogoutButton isCollapsed={isCollapsed}>
-        {!isCollapsed && <div style={{ marginRight: 10 }}>Logout</div>}
-        <FontAwesomeIcon icon={faRightFromBracket} />
-      </LogoutButton>
     </Sidebar>
   );
 };
