@@ -11,10 +11,13 @@ import {
   faHouse,
   faRightFromBracket,
   faPlus,
-  faDatabase, 
+  faDatabase,
   faCodePullRequest,
+  faChartArea,
+  faMap,
+  faChartColumn,
 } from "@fortawesome/free-solid-svg-icons";
-import '../../../App.css'
+import "../../../App.css";
 
 library.add(faHome, faChartBar, faCog, faTimes, faHouse);
 
@@ -33,8 +36,6 @@ const Sidebar = styled.div`
   width: ${(props) => (props.isCollapsed ? "80px" : "250px")};
   background-color: #005af0;
   z-index: 1000;
-  border-right : 1px solid black;
- 
   font-family: "Poppins", sans-serif;
 `;
 
@@ -89,7 +90,6 @@ const TitleSidebard = styled.h2`
   color: #fff;
 `;
 
-
 const LogoutButton = styled.button`
   display: flex;
   justify-content: ${(props) =>
@@ -141,12 +141,13 @@ const SidebarComponent = ({ isCollapsed, setIsCollapsed }) => {
   const navItems = [
     {
       id: 1,
-      icon: faChartBar,
-      text: "Statistics",
-      path: "statistics",
+      icon: faHome,
+      text: "Home",
+      path: "default",
     },
-    { id: 2, icon: faCog, text: "statistics", path: "statistics" },
-    { id: 3, icon: faCodePullRequest, text: "Map", path: "map" },
+    { id: 2, icon: faChartColumn, text: "Statistics", path: "statistics" },
+    { id: 3, icon: faMap, text: "Map", path: "map" },
+    { id: 4, icon: faChartArea, text: "Charts", path: "charts" },
   ];
 
   const handleToggleSidebar = () => {
@@ -157,10 +158,10 @@ const SidebarComponent = ({ isCollapsed, setIsCollapsed }) => {
     <Sidebar isCollapsed={isCollapsed}>
       <Logo isCollapsed={isCollapsed} onClick={handleToggleSidebar}>
         {isCollapsed ? (
-         <TitleSidebard>&gt;</TitleSidebard>
+          <TitleSidebard>&gt;</TitleSidebard>
         ) : (
           <>
-            <TitleSidebard>Hra </TitleSidebard>
+            <TitleSidebard>Hra - 🐦🔥</TitleSidebard>
           </>
         )}
       </Logo>

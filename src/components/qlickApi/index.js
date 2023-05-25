@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from 'react';
-import embed from '../../utils/config';
-import connect from '../../utils/connect';
+import React, { useEffect, useRef } from "react";
+import embed from "../../utils/config";
+import connect from "../../utils/connect";
 
-const QlikObject = ({ type, id }) => {
+const QlikObject = ({ type, id, appId }) => {
   const elementRef = useRef();
+  const isMounted = useRef(false);
 
   useEffect(() => {
     let session;
@@ -12,13 +13,12 @@ const QlikObject = ({ type, id }) => {
       session = await connect({
         url: "https://2w32pfh3l2b94yd.eu.qlikcloud.com",
         webIntegrationId: "pJZiFzzGAFrWk0EtZ9qmvHZSP_ltp7SJ",
-        appId: "d711350f-0729-4b03-bb10-8de83c8cc4a7",
+        appId: appId,
       });
 
-      if (session && elementRef.current) {
+      if (session && elementRef.current && isMounted.current) {
         const nebbie = embed(session);
 
-        // Nettoyage de l'élément de rendu
         while (elementRef.current.firstChild) {
           elementRef.current.removeChild(elementRef.current.firstChild);
         }
@@ -30,21 +30,21 @@ const QlikObject = ({ type, id }) => {
         });
       }
     };
-
+    isMounted.current = true;
     init();
 
-    // Cleanup function
     return () => {
+      isMounted.current = false;
+
       if (elementRef.current) {
         while (elementRef.current.firstChild) {
           elementRef.current.removeChild(elementRef.current.firstChild);
         }
       }
-    
     };
-  }, [type, id]);
+  }, [type, id, appId]);
 
-  return <div ref={elementRef} style={{ height: '600px' }} />;
+  return <div ref={elementRef} style={{ height: "600px" }} />;
 };
 
 export default QlikObject;

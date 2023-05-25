@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
+import React from "react";
+import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 const HomePageContainer = styled.div`
-  background-color: #002F6C;
-  color: #FFFFFF;
+  background-color: #002f6c;
+  color: #ffffff;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -12,8 +12,8 @@ const HomePageContainer = styled.div`
 `;
 
 const RedirectButton = styled.button`
-  background-color: #FFFFFF;
-  color: #002F6C;
+  background-color: #ffffff;
+  color: #002f6c;
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
@@ -21,21 +21,19 @@ const RedirectButton = styled.button`
 `;
 
 function HomePage() {
-
   const handleButtonClick = () => {
-    window.location.href = '/panel';
+    window.location.href = "/panel";
   };
 
   return (
     <HomePageContainer>
       <div>
-        <h1>Mon expérience avec Nebula.js et React.js</h1>
-        <p>Configuration avec Qlik etc...</p>
-        <RedirectButton onClick={handleButtonClick}>Aller à l'autre page</RedirectButton>
+        <RedirectButton onClick={handleButtonClick}>
+          Aller à l'autre page
+        </RedirectButton>
       </div>
     </HomePageContainer>
   );
 }
 
 export default HomePage;
-

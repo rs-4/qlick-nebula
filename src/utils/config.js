@@ -3,7 +3,7 @@ import barchart from "@nebula.js/sn-bar-chart";
 import table from "@nebula.js/sn-table";
 import linechart from "@nebula.js/sn-line-chart";
 import map from "@nebula.js/sn-map";
-
+import kpi from "@nebula.js/sn-kpi";
 
 const n = embed.createConfiguration({
   context: {
@@ -27,7 +27,10 @@ const n = embed.createConfiguration({
       name: "map",
       load: () => Promise.resolve(map),
     },
-
+    {
+      name: "kpi",
+      load: () => Promise.resolve(kpi),
+    },
   ],
 });
 export default n;
