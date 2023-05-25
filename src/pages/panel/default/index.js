@@ -64,7 +64,6 @@ const Index = () => {
             },
           }}
         />
-
         <NebulaObjectKpi
           objectType="kpi"
           appId="de21a6e5-4b72-4026-8560-e0eb89333e96"
@@ -75,9 +74,32 @@ const Index = () => {
               qMeasures: [
                 {
                   qDef: {
-                    qDef: "Count(first_name)",
-                    qLabel: "Nombre de prénoms",
+                    qDef: "Count(last_name)",
+                    qLabel: "Nombre de noms",
                     qColor: "#FF0000",
+                  },
+                },
+              ],
+              qInitialDataFetch: [{ qWidth: 2, qHeight: 50 }],
+            },
+          }}
+        />
+        <NebulaObjectKpi
+          objectType="table"
+          appId="de21a6e5-4b72-4026-8560-e0eb89333e96"
+          properties={{
+            qHyperCubeDef: {
+              qDimensions: [
+                {
+                  qDef: {
+                    qFieldDefs: ["last_name"],
+                  },
+                },
+              ],
+              qMeasures: [
+                {
+                  qDef: {
+                    qDef: "Count(last_name)",
                   },
                 },
               ],

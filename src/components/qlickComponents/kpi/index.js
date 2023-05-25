@@ -1,10 +1,22 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { embed } from "@nebula.js/stardust";
 import connect from "../../../utils/connect";
+import { styled } from "styled-components";
+
+const Container = styled.div`
+  width: 300px;
+  height: 100px;
+  border: 1px solid black;
+  margin: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: #fdfdfd;
+`;
 
 const NebulaObjectKpi = ({ appId, objectType, properties }) => {
   const elementRef = useRef();
   const isMounted = useRef(false);
+  const [isLoading, setIsLoading] = useState(false); // Added state for loading
 
   useEffect(() => {
     if (!isMounted.current) {
@@ -22,16 +34,17 @@ const NebulaObjectKpi = ({ appId, objectType, properties }) => {
         nebbie = embed(app);
 
         if (elementRef.current) {
-          // Ensure the element reference is empty before render
           while (elementRef.current.firstChild) {
             elementRef.current.removeChild(elementRef.current.firstChild);
           }
 
-          nebbie.render({
+          await nebbie.render({
             element: elementRef.current,
             type: objectType,
             properties: properties,
           });
+
+          setIsLoading(false);
         }
       };
 
@@ -39,17 +52,7 @@ const NebulaObjectKpi = ({ appId, objectType, properties }) => {
     }
   }, [appId, objectType, properties]);
 
-  return (
-    <div
-      ref={elementRef}
-      style={{
-        width: "500px",
-        height: "100px",
-        border: "1px solid black",
-        margin: "10px",
-      }}
-    />
-  );
+  return <Container ref={elementRef} />;
 };
 
 export default NebulaObjectKpi;
