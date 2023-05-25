@@ -44,7 +44,7 @@ const QlikObject = ({ type, id, appId }) => {
     };
   }, [type, id, appId]);
 
-  return <div ref={elementRef} style={{ height: "600px" }} />;
+  return <div ref={elementRef} style={{ height: "800px" }} />;
 };
 
 export default QlikObject;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SidebarComponent from "../../components/layout/sidebar";
 import { Route, Routes } from "react-router-dom";
-import Map from "./map";
+import Table from "./table";
 import App from "../../App";
 import Statistics from "./statistics";
 import Charts from "./charts";
@@ -23,7 +23,7 @@ const Panel = () => {
       />
       <Content isCollapsed={isCollapsed}>
         <Routes>
-          <Route path="map" element={<App />} />
+          <Route path="table" element={<Table />} />
           <Route path="statistics" element={<Statistics />} />
           <Route path="charts" element={<Charts />} />
           <Route path="default" element={<Default />} />

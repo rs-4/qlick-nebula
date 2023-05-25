@@ -16,6 +16,7 @@ import {
   faChartArea,
   faMap,
   faChartColumn,
+  faTable,
 } from "@fortawesome/free-solid-svg-icons";
 import "../../../App.css";
 
@@ -146,7 +147,7 @@ const SidebarComponent = ({ isCollapsed, setIsCollapsed }) => {
       path: "default",
     },
     { id: 2, icon: faChartColumn, text: "Statistics", path: "statistics" },
-    { id: 3, icon: faMap, text: "Map", path: "map" },
+    { id: 3, icon: faTable , text: "Table", path: "table" },
     { id: 4, icon: faChartArea, text: "Charts", path: "charts" },
   ];
 
