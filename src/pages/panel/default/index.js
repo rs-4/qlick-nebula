@@ -1,52 +1,28 @@
 import React from "react";
 import styled from "styled-components";
-import QlikObject from "../../../components/qlickApi";
-import NebulaObjectKpi from "../../../components/qlickComponents/kpi";
+import NebulaObject from "../../../components/qlickComponents";
+import { Container, HorizontalLine, Title } from "../../../components/styled";
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 10px;
-`;
 
-const HorizontalLine = styled.hr`
-  width: 80%;
-`;
+
 
 const Box = styled.div`
   display: flex;
-
   flex-direction: colomn;
   padding: 2rem;
   width: 100%;
 `;
 
-const BoxWithBorder = styled(Box)`
-  border: 1px solid black;
-`;
 
-const Title = styled.h1`
-  font-family: "Poppins", sans-serif;
-`;
 
 const Index = () => {
   return (
     <Container>
-      <Title>Api Qlik Connection</Title>
-      <Box>
-        <QlikObject
-          type="kpi"
-          id="nnTDyc"
-          appId="d711350f-0729-4b03-bb10-8de83c8cc4a7"
-        />
-      </Box>
-      <HorizontalLine />
       <Title>Qlik Create Object</Title>
+       <HorizontalLine />
       <Box>
-        <NebulaObjectKpi
+        <NebulaObject
           objectType="kpi"
-          appId="de21a6e5-4b72-4026-8560-e0eb89333e96"
           properties={{
             qHyperCubeDef: {
               qDimensions: [],
@@ -54,9 +30,8 @@ const Index = () => {
               qMeasures: [
                 {
                   qDef: {
-                    qDef: "Count(last_name)",
-                    qLabel: "Nombre de noms",
-                    qColor: "#FF0000",
+                    qDef: "Count(Title)",
+                    qLabel: "Number of videos games",
                   },
                 },
               ],
@@ -64,9 +39,8 @@ const Index = () => {
             },
           }}
         />
-        <NebulaObjectKpi
+       <NebulaObject
           objectType="kpi"
-          appId="de21a6e5-4b72-4026-8560-e0eb89333e96"
           properties={{
             qHyperCubeDef: {
               qDimensions: [],
@@ -74,9 +48,12 @@ const Index = () => {
               qMeasures: [
                 {
                   qDef: {
-                    qDef: "Count(last_name)",
-                    qLabel: "Nombre de noms",
-                    qColor: "#FF0000",
+                    qDef: "Avg(Release.Year)",
+                    qLabel: "Average release year", 
+                    qNumFormat: {
+                      qType: "I", 
+                      qnDec: 0
+                    }
                   },
                 },
               ],
@@ -84,9 +61,8 @@ const Index = () => {
             },
           }}
         />
-        <NebulaObjectKpi
+       <NebulaObject
           objectType="kpi"
-          appId="de21a6e5-4b72-4026-8560-e0eb89333e96"
           properties={{
             qHyperCubeDef: {
               qDimensions: [],
@@ -94,9 +70,12 @@ const Index = () => {
               qMeasures: [
                 {
                   qDef: {
-                    qDef: "Count(last_name)",
-                    qLabel: "Nombre de noms",
-                    qColor: "#FF0000",
+                    qDef: "Max(Features.MaxPlayers)",
+                    qLabel: "Max players of all game",
+                    qNumFormat: {
+                      qType: "I", 
+                      qnDec: 0
+                    }
                   },
                 },
               ],
@@ -104,87 +83,71 @@ const Index = () => {
             },
           }}
         />
-        <NebulaObjectKpi
+         <NebulaObject
           objectType="kpi"
-          appId="de21a6e5-4b72-4026-8560-e0eb89333e96"
           properties={{
-            qHyperCubeDef: {
-              qDimensions: [],
-
-              qMeasures: [
-                {
-                  qDef: {
-                    qDef: "Count(last_name)",
-                    qLabel: "Nombre de noms",
-                    qColor: "#FF0000",
+              qHyperCubeDef: {
+                qDimensions: [],
+                qMeasures: [
+                  {
+                    qDef: {
+                      qDef: "Avg([Length.Main Story.Average])",
+                      qLabel: "Average Completion Time",
+                    },
                   },
-                },
-              ],
-              qInitialDataFetch: [{ qWidth: 2, qHeight: 50 }],
-            },
-          }}
-        />
-        <NebulaObjectKpi
-          objectType="kpi"
-          appId="de21a6e5-4b72-4026-8560-e0eb89333e96"
-          properties={{
-            qHyperCubeDef: {
-              qDimensions: [],
-
-              qMeasures: [
-                {
-                  qDef: {
-                    qDef: "Count(last_name)",
-                    qLabel: "Nombre de noms",
-                    qColor: "#FF0000",
-                  },
-                },
-              ],
-              qInitialDataFetch: [{ qWidth: 2, qHeight: 50 }],
-            },
-          }}
-        />
-        <NebulaObjectKpi
-          objectType="kpi"
-          appId="de21a6e5-4b72-4026-8560-e0eb89333e96"
-          properties={{
-            qHyperCubeDef: {
-              qDimensions: [],
-
-              qMeasures: [
-                {
-                  qDef: {
-                    qDef: "Count(last_name)",
-                    qLabel: "Nombre de noms",
-                    qColor: "#FF0000",
-                  },
-                },
-              ],
-              qInitialDataFetch: [{ qWidth: 2, qHeight: 50 }],
-            },
-          }}
-        />
-        <NebulaObjectKpi
-          objectType="kpi"
-          appId="de21a6e5-4b72-4026-8560-e0eb89333e96"
-          properties={{
-            qHyperCubeDef: {
-              qDimensions: [],
-
-              qMeasures: [
-                {
-                  qDef: {
-                    qDef: "Count(last_name)",
-                    qLabel: "Nombre de noms",
-                    qColor: "#FF0000",
-                  },
-                },
-              ],
-              qInitialDataFetch: [{ qWidth: 2, qHeight: 50 }],
-            },
-          }}
-        />
+                ],
+                qInitialDataFetch: [{ qWidth: 2, qHeight: 50 }],
+              },
+          }} />
       </Box>
+    <Box>
+      <NebulaObject
+        objectType="piechart"
+        properties={{
+          qHyperCubeDef: {
+            qDimensions: [{
+              qDef: {
+                qFieldDefs: ["Metadata.Genres"],
+              },
+            }],
+            qMeasures: [{
+              qDef: {
+                qDef: "Count(Title)",
+                qLabel: "Total count of Title",
+                qNumFormat: {
+                  qType: "I", 
+                  qnDec: 0
+                }
+              },
+            }],
+            qInitialDataFetch: [{ qWidth: 2, qHeight: 5000 }], 
+          },
+        }}
+      />
+       <NebulaObject
+      objectType="barchart"
+      size="normal"     
+      properties={{
+        qHyperCubeDef: {
+          qDimensions: [
+            {
+              qDef: {
+                qFieldDefs: ["Release.Console"],
+              },
+            },
+          ],
+          qMeasures: [
+            {
+              qDef: {
+                qDef: "Sum(Metrics.Sales)",
+                qLabel: "Total Sales",
+              },
+            },
+          ],
+          qInitialDataFetch: [{ qWidth: 2, qHeight: 50 }],
+        },
+      }}
+    />  </Box>
     </Container>
   );
 };

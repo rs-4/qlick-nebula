@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
+
 
 const HomePageContainer = styled.div`
   background-color: #002f6c;
   color: #ffffff;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,16 +22,14 @@ const RedirectButton = styled.button`
 
 function HomePage() {
   const handleButtonClick = () => {
-    window.location.href = "/panel";
+    window.location.href = "/panel/default";
   };
 
   return (
     <HomePageContainer>
-      <div>
         <RedirectButton onClick={handleButtonClick}>
           Aller à l'autre page
         </RedirectButton>
-      </div>
     </HomePageContainer>
   );
 }

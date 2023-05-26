@@ -1,36 +1,32 @@
 import React from "react";
-import NebulaObjectKpi from "../../../components/qlickComponents/kpi";
-import QlikObject from "../../../components/qlickApi";
+import NebulaObject from "../../../components/qlickComponents";
+import { Container, HorizontalLine, Title } from "../../../components/styled";
 
 const Index = () => {
+
   return (
-    <div>
-      <NebulaObjectKpi
-        objectType="kpi"
-        appId="de21a6e5-4b72-4026-8560-e0eb89333e96"
+ 
+  <Container>
+        <Title>Qlik Create Object / Charts </Title>
+        <HorizontalLine />
+  <NebulaObject
+      objectType="barchart"
+      size="xl"
         properties={{
           qHyperCubeDef: {
             qDimensions: [
-              {
-                qDef: {
-                  qFieldDefs: ["last_name"],
-                },
-              },
+              { qDef: { qFieldDefs: ["Metadata.Genres"] } },
             ],
-
             qMeasures: [
-              {
-                qDef: {
-                  qDef: "Count(last_name)",
-                  qLabel: "Nombre de noms",
-                },
-              },
+              { qDef: { qDef: "Count(Title)" } }
             ],
-            qInitialDataFetch: [{ qWidth: 2, qHeight: 50 }],
+            qInitialDataFetch: [{ qWidth: 10, qHeight: 50 }],  
           },
+          showTitles: true 
         }}
-      />
-    </div>
+    /> 
+    </Container>
+   
   );
 };
 

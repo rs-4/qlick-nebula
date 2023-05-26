@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import SidebarComponent from "../../components/layout/sidebar";
 import { Route, Routes } from "react-router-dom";
 import Table from "./table";
-import App from "../../App";
 import Statistics from "./statistics";
 import Charts from "./charts";
 import Default from "./default";
@@ -24,7 +23,7 @@ const Panel = () => {
     const init = async () => {
       console.log("init");
       const app = await connect({
-        appId: "de21a6e5-4b72-4026-8560-e0eb89333e96",
+        appId: "83870b78-b0ac-422d-bc03-8d5dec5086a4",
         url: "https://2w32pfh3l2b94yd.eu.qlikcloud.com",
         webIntegrationId: "pJZiFzzGAFrWk0EtZ9qmvHZSP_ltp7SJ",
       });

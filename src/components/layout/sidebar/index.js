@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import React from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -17,10 +17,6 @@ import "../../../App.css";
 
 library.add(faHome, faChartBar, faCog, faTimes, faHouse);
 
-const LogoApp = styled.img`
-  width: 40px;
-  margin: 20px;
-`;
 
 const Sidebar = styled.div`
   display: flex;
@@ -88,6 +84,7 @@ const TitleSidebard = styled.h2`
 
 const LogoutButton = styled.button`
   display: flex;
+  font-family: "Poppins", "sans-serif";
   justify-content: ${(props) =>
     props.isCollapsed ? "center" : "space-evenly"};
   align-items: center;
@@ -154,7 +151,7 @@ const SidebarComponent = ({ isCollapsed, setIsCollapsed }) => {
     <Sidebar isCollapsed={isCollapsed}>
       <Logo isCollapsed={isCollapsed} onClick={handleToggleSidebar}>
         {isCollapsed ? (
-          <TitleSidebard>🐦🔥</TitleSidebard>
+          <TitleSidebard>🔥</TitleSidebard>
         ) : (
           <>
             <TitleSidebard>HRA - 🐦🔥</TitleSidebard>
@@ -185,7 +182,7 @@ const SidebarComponent = ({ isCollapsed, setIsCollapsed }) => {
         </React.Fragment>
       ))}
       <LogoutButton onClick={handleToggleSidebar}>
-        {isCollapsed ? <> &gt;&gt;</> : <>&lt;&lt; </>}
+        {isCollapsed ? <> &gt;&gt;  </> : <>&lt;&lt; Reduce  </>}
       </LogoutButton>
     </Sidebar>
   );
