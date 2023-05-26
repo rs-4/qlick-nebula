@@ -157,7 +157,7 @@ const SidebarComponent = ({ isCollapsed, setIsCollapsed }) => {
           <TitleSidebard>🐦🔥</TitleSidebard>
         ) : (
           <>
-            <TitleSidebard>Hra - 🐦🔥</TitleSidebard>
+            <TitleSidebard>HRA - 🐦🔥</TitleSidebard>
           </>
         )}
       </Logo>

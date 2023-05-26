@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState  , useContext} from "react";
 import { embed } from "@nebula.js/stardust";
-import connect from "../../../utils/connect";
+import AppContext from "../../../context/appContext";
 import { styled } from "styled-components";
 
 const Container = styled.div`
@@ -18,21 +18,18 @@ const NebulaObjectKpi = ({ appId, objectType, properties }) => {
   const isMounted = useRef(false);
   const [isLoading, setIsLoading] = useState(false); // Added state for loading
 
+  const app = useContext(AppContext);
+
+
   useEffect(() => {
-    if (!isMounted.current) {
+    if (!isMounted.current && app) {
       isMounted.current = true;
 
-      let nebbie;
+      let nebbie = embed(app);
+
       console.log("properties", properties);
 
       const init = async () => {
-        const app = await connect({
-          appId,
-          url: "https://2w32pfh3l2b94yd.eu.qlikcloud.com",
-          webIntegrationId: "pJZiFzzGAFrWk0EtZ9qmvHZSP_ltp7SJ",
-        });
-        nebbie = embed(app);
-
         if (elementRef.current) {
           while (elementRef.current.firstChild) {
             elementRef.current.removeChild(elementRef.current.firstChild);
@@ -50,7 +47,8 @@ const NebulaObjectKpi = ({ appId, objectType, properties }) => {
 
       init();
     }
-  }, [appId, objectType, properties]);
+  }, [appId, objectType, properties, app]);
+
 
   return <Container ref={elementRef} />;
 };
