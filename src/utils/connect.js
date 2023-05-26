@@ -12,7 +12,7 @@ async function getQCSHeaders({ webIntegrationId, url }) {
     const loginUrl = new URL(`${url}/login`);
     loginUrl.searchParams.append("returnto", window.location.href);
     loginUrl.searchParams.append("qlik-web-integration-id", webIntegrationId);
-    
+
     return undefined;
   }
   const crfsToken = response.headers.get("qlik-csrf-token");

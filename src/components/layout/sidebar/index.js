@@ -9,12 +9,7 @@ import {
   faCog,
   faTimes,
   faHouse,
-  faRightFromBracket,
-  faPlus,
-  faDatabase,
-  faCodePullRequest,
   faChartArea,
-  faMap,
   faChartColumn,
   faTable,
 } from "@fortawesome/free-solid-svg-icons";
@@ -147,7 +142,7 @@ const SidebarComponent = ({ isCollapsed, setIsCollapsed }) => {
       path: "default",
     },
     { id: 2, icon: faChartColumn, text: "Statistics", path: "statistics" },
-    { id: 3, icon: faTable , text: "Table", path: "table" },
+    { id: 3, icon: faTable, text: "Table", path: "table" },
     { id: 4, icon: faChartArea, text: "Charts", path: "charts" },
   ];
 
@@ -159,7 +154,7 @@ const SidebarComponent = ({ isCollapsed, setIsCollapsed }) => {
     <Sidebar isCollapsed={isCollapsed}>
       <Logo isCollapsed={isCollapsed} onClick={handleToggleSidebar}>
         {isCollapsed ? (
-          <TitleSidebard>&gt;</TitleSidebard>
+          <TitleSidebard>🐦🔥</TitleSidebard>
         ) : (
           <>
             <TitleSidebard>Hra - 🐦🔥</TitleSidebard>
@@ -189,6 +184,9 @@ const SidebarComponent = ({ isCollapsed, setIsCollapsed }) => {
           </StyledNavLink>
         </React.Fragment>
       ))}
+      <LogoutButton onClick={handleToggleSidebar}>
+        {isCollapsed ? <> &gt;&gt;</> : <>&lt;&lt; </>}
+      </LogoutButton>
     </Sidebar>
   );
 };
