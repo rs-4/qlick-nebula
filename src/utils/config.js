@@ -5,8 +5,7 @@ import pie from "@nebula.js/sn-pie-chart";
 import map from "@nebula.js/sn-map";
 import kpi from "@nebula.js/sn-kpi";
 
-
-//class of nebula object 
+//class of nebula object
 
 const types = [
   {
@@ -36,5 +35,3 @@ const types = [
 ];
 
 export default types;
-
-

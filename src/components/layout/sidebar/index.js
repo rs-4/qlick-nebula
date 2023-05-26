@@ -17,7 +17,6 @@ import "../../../App.css";
 
 library.add(faHome, faChartBar, faCog, faTimes, faHouse);
 
-
 const Sidebar = styled.div`
   display: flex;
   flex-direction: column;
@@ -182,7 +181,7 @@ const SidebarComponent = ({ isCollapsed, setIsCollapsed }) => {
         </React.Fragment>
       ))}
       <LogoutButton onClick={handleToggleSidebar}>
-        {isCollapsed ? <> &gt;&gt;  </> : <>&lt;&lt; Reduce  </>}
+        {isCollapsed ? <> &gt;&gt; </> : <>&lt;&lt; Reduce </>}
       </LogoutButton>
     </Sidebar>
   );

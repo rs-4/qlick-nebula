@@ -9,8 +9,6 @@ import styled from "styled-components";
 import AppContext from "../../context/appContext";
 import connect from "../../utils/connect";
 
-
-
 const Content = styled.div`
   margin-left: ${(props) => (props.isCollapsed ? "80px" : "250px")};
 `;
@@ -33,23 +31,22 @@ const Panel = () => {
     init();
   }, []);
 
-
   return (
     <>
       <AppContext.Provider value={app}>
-      <SidebarComponent
-        isCollapsed={isCollapsed}
-        setIsCollapsed={setIsCollapsed}
-      />
-      <Content isCollapsed={isCollapsed}>
-        <Routes>
-          <Route path="table" element={<Table />} />
-          <Route path="statistics" element={<Statistics />} />
-          <Route path="charts" element={<Charts />} />
-          <Route path="default" element={<Default />} />
-        </Routes>
-      </Content>   
-        </AppContext.Provider>
+        <SidebarComponent
+          isCollapsed={isCollapsed}
+          setIsCollapsed={setIsCollapsed}
+        />
+        <Content isCollapsed={isCollapsed}>
+          <Routes>
+            <Route path="table" element={<Table />} />
+            <Route path="statistics" element={<Statistics />} />
+            <Route path="charts" element={<Charts />} />
+            <Route path="default" element={<Default />} />
+          </Routes>
+        </Content>
+      </AppContext.Provider>
     </>
   );
 };
